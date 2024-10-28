@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA INCLUSIVO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="delayRedirect()">
+
+    <!-- Logo del sistema -->
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Logo del Sistema Inclusivo" class="logo">
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1>Bienvenido al Sistema Inclusivo</h1>
+        <p id="delayMsg" class="description">El sistema está diseñado para brindar accesibilidad a personas con problemas visuales y auditivos. Si tienes dificultades visuales, espera 10 segundos para ser redirigido automáticamente, o utiliza el botón de abajo para escuchar el mensaje.</p>
+
+        <input type="text" id="text" class="input-text" value="Bienvenido al Sistema Inclusivo. Este sistema es accesible para personas con problemas visuales y auditivos.">
+        
+        <div class="buttons">
+            <button class="btn" onclick="speech()">🔊 Reproducir Mensaje</button>
+            <button class="btn" onclick="startRecognition()">🎤 Iniciar Reconocimiento de Voz</button>
+        </div>
+        
+        <div id="resultText" class="result-text">Aquí se mostrará el texto reconocido...</div>
+    </div>
+
+    <marquee class="marquee">Bienvenidos a Together - Sistema Inclusivo</marquee>
+
+    <script src="script.js"></script>
+</body>
+</html>
