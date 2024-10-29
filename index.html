@@ -3,33 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISTEMA INCLUSIVO</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sistema Inclusivo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="delayRedirect()">
-
-    <!-- Logo del sistema -->
-    <div class="logo-container">
-        <img src="logo.jpg" alt="Logo del Sistema Inclusivo" class="logo">
-    </div>
-
-    <!-- Contenido principal -->
-    <div class="content">
+<body>
+    <div class="container">
         <h1>Bienvenido al Sistema Inclusivo</h1>
-        <p id="delayMsg" class="description">El sistema está diseñado para brindar accesibilidad a personas con problemas visuales y auditivos. Si tienes dificultades visuales, espera 10 segundos para ser redirigido automáticamente, o utiliza el botón de abajo para escuchar el mensaje.</p>
-
-        <input type="text" id="text" class="input-text" value="Bienvenido al Sistema Inclusivo. Este sistema es accesible para personas con problemas visuales y auditivos.">
         
-        <div class="buttons">
-            <button class="btn" onclick="speech()">🔊 Reproducir Mensaje</button>
-            <button class="btn" onclick="startRecognition()">🎤 Iniciar Reconocimiento de Voz</button>
+        <!-- Mensaje de texto para usuarios visuales -->
+        <div class="text-box">
+            <p id="text">Bienvenido al SISTEMA INCLUSIVO. Si tienes problemas visuales, espera <span id="countdown">10</span> segundos y serás redirigido a la pantalla correspondiente. Si tienes problemas auditivos, presiona el botón continuar.</p>
         </div>
         
-        <div id="resultText" class="result-text">Aquí se mostrará el texto reconocido...</div>
+        <!-- Imagen y video para la inclusión -->
+        <div class="media-container">
+            <img src="logo.jpg" alt="Imagen inclusiva" onclick="speakMessage()" class="inclusion-image">
+            <video controls class="inclusion-video">
+                <source src="video.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+        </div>
+        
+        <!-- Botón para redirigir a la página para personas con problemas auditivos -->
+        <button id="audioButton" onclick="redirectToSum()">Continuar</button>
     </div>
-
-    <marquee class="marquee">Bienvenidos a Together - Sistema Inclusivo</marquee>
-
+    
     <script src="script.js"></script>
 </body>
 </html>

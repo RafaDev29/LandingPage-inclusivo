@@ -1,0 +1,46 @@
+/* Fondo de página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+/* Título */
+h1 {
+    color: #1e88e5;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Área de texto para el reconocimiento de voz */
+.texto-reconocido {
+    font-size: 18px;
+    color: #004d40;
+    padding: 15px;
+    background-color: #e0f2f1;
+    border-radius: 8px;
+    border: 1px solid #b2dfdb;
+    margin-top: 20px;
+}

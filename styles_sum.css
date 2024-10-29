@@ -1,0 +1,63 @@
+/* Fondo de página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff3e0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Logo */
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+/* Título */
+h1 {
+    color: #ef6c00;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Área de texto para ingresar */
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ffe0b2;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+/* Botón de reproducción */
+.btn-reproducir {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #ef6c00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reproducir:hover {
+    background-color: #d84315;
+}

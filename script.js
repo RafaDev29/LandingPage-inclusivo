@@ -1,46 +1,37 @@
-// Temporizador de redirección automática
-function delayRedirect() {
-    document.getElementById('delayMsg').innerHTML = '<span id="countDown">10</span> segundos para ser redirigido automáticamente...';
-    let count = 10;
-    const countdown = setInterval(function () {
-        count--;
-        document.getElementById('countDown').innerHTML = count;
-        if (count === 0) {
-            clearInterval(countdown);
-            window.location.href = 'voz.html';
-        }
-    }, 1000);
-}
+// Leer el mensaje de bienvenida en voz alta y comenzar cuenta regresiva al cargar la página
+window.onload = function() {
+    speakMessage();
+    startCountdown();
+};
 
-// Función para reproducir el texto en voz
-function speech() {
-    const text = document.getElementById("text").value;
+// Función para leer el texto en voz alta
+function speakMessage() {
+    const text = document.getElementById("text").textContent;
     if (text !== "") {
-        const voz = new SpeechSynthesisUtterance(text);
+        let voz = new SpeechSynthesisUtterance(text);
         voz.lang = "es-ES";
         voz.volume = 1;
         window.speechSynthesis.speak(voz);
     }
 }
 
-// Configuración de reconocimiento de voz
-let recognition;
-function startRecognition() {
-    if (!("webkitSpeechRecognition" in window)) {
-        alert("Disculpa, no puedes usar la API de reconocimiento de voz.");
-    } else {
-        recognition = new webkitSpeechRecognition();
-        recognition.lang = "es-ES";
-        recognition.continuous = true;
-        recognition.interimResults = false;
+// Función de cuenta regresiva y redirección
+function startCountdown() {
+    let countdown = 10;
+    const countdownElement = document.getElementById("countdown");
 
-        recognition.onresult = (event) => {
-            let text = '';
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                text += event.results[i][0].transcript + ' ';
-            }
-            document.getElementById("resultText").innerText = text;
-        };
-        recognition.start();
-    }
+    const interval = setInterval(() => {
+        countdown -= 1;
+        countdownElement.textContent = countdown;
+
+        if (countdown <= 0) {
+            clearInterval(interval);
+            window.location.href = "voz.html";
+        }
+    }, 1000);
+}
+
+// Redirección manual para problemas auditivos
+function redirectToSum() {
+    window.location.href = "sum.html";
 }

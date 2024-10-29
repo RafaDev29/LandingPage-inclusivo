@@ -1,57 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>SISTEMA INCLUSIVO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Inclusivo</title>
+    <link rel="stylesheet" href="styles_voz.css">
 </head>
 <body>
-	<input type="text" id="text" value="SISTEMA INCLUSIVO">
-	<button onclick="speech()">REPRODUCIR</button>
-	<br><br><br><br><br>
-	<div id="texto"></div>
+    <div class="container">
+        <img src="logo.jpg" alt="Logo Sistema Inclusivo" class="logo">
+        
+        <!-- Título del sistema -->
+        <h1>SISTEMA INCLUSIVO</h1>
+        
+        <!-- Área de texto para el reconocimiento de voz -->
+        <div id="texto" class="texto-reconocido">Aquí aparecerá lo que digas...</div>
+    </div>
 
-	<script type="text/javascript">
-		// Función para reproducir el texto en voz
-		function speech() {
-			const text = document.getElementById("text").value;
-			if (text === "SISTEMA INCLUSIVO") {
-				const voz = new SpeechSynthesisUtterance(text);
-				voz.lang = "es-ES";
-				voz.volume = 1;
-				window.speechSynthesis.speak(voz);
-			}
-		}
-
-		// Evento para reproducir el texto al presionar Enter
-		window.addEventListener("keydown", (e) => {
-			if (e.keyCode === 13) {
-				speech();
-			}
-		});
-
-		// Configuración de reconocimiento de voz
-		let repro;
-		if (!("webkitSpeechRecognition" in window)) {
-			alert("Disculpa, no puedes usar la API de reconocimiento de voz.");
-		} else {
-			repro = new webkitSpeechRecognition();
-			repro.lang = "es-ES";
-			repro.continuous = true;
-			repro.interimResults = true; // Cambiado 'interim' por 'interimResults'
-			repro.addEventListener("result", iniciar);
-
-			// Iniciar reconocimiento de voz
-			repro.start();
-		}
-
-		// Función para mostrar el texto reconocido en tiempo real
-		function iniciar(event) {
-			let textoReconocido = "";
-			for (let i = event.resultIndex; i < event.results.length; i++) {
-				textoReconocido += event.results[i][0].transcript;
-			}
-			document.getElementById("texto").innerHTML = textoReconocido;
-		}
-	</script>
+    <script src="script_voz.js"></script>
 </body>
 </html>

@@ -1,34 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>SISTEMA INCLUSIVO</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Inclusivo - Lectura de Texto</title>
+    <link rel="stylesheet" href="styles_sum.css">
 </head>
-
-<input type="text" id="text" >
-        <button onclick="speech()">REPRODUCIR</button>
-    <script type="text/javascript">
-        function speech() {
-            var text=document.getElementById("text").value;
-            if(text!=""){
-                voz.text=text;
-                window.speechSynthesis.speak(voz);
-                //document.writeln();
-            }
-        }
-        var voz=new SpeechSynthesisUtterance();
-        voz.lang="es-Es";
-        voz.volume=1;
-        var timer=setInterval(function(){
-            var voces=speechSynthesis.getVoices();
-            if(voces.lenght!=0){
-                voz.voces=voces[0];
-                clearInterval(timer);
-            }
-            
-        },1000);
-
-
+<body>
+    <div class="container">
+        <img src="logo.jpg" alt="Logo Sistema Inclusivo" class="logo">
         
-    </script>
+        <!-- Título del sistema -->
+        <h1>SISTEMA INCLUSIVO - Lectura de Texto</h1>
+        
+        <!-- Área de texto para ingresar y reproducir -->
+        <textarea id="text-input" placeholder="Escribe aquí el texto que deseas escuchar..." rows="4"></textarea>
+        <button onclick="speakText()" class="btn-reproducir">Reproducir</button>
+    </div>
+
+    <script src="script_sum.js"></script>
 </body>
 </html>
